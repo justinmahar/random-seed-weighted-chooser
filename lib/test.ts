@@ -142,13 +142,3 @@ console.log(Chooser.chooseWeightedObject(lottery));
 console.log(Chooser.chooseWeightedObject(lottery));
 console.log(Chooser.chooseWeightedObject(lottery));
 console.log(Chooser.chooseWeightedObject(lottery));
-
-console.log('Lottery with seed "RaNdom-Seed-WeiGHted-Chooser":');
-console.log(
-  Chooser.chooseWeightedObject(
-    lottery,
-    "weight",
-    1,
-    "RaNdom-Seed-WeiGHted-Chooser"
-  )
-);

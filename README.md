@@ -172,7 +172,6 @@ let lottery = [
 
 chooser.chooseWeightedObject(lottery);
 // "Nearly impossible" has 1/100000 odds of occurring.
-// The seed "RaNdom-Seed-WeiGHted-CHooser" causes it to be chosen :]
 ```
 
 # Happy Random Seed Weighted Choosing!
