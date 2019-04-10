@@ -2,6 +2,8 @@
 
 A random weighted item chooser with custom seed option for JavaScript and TypeScript.
 
+This project is [available via npm as a JavaScript CommonJS module](https://www.npmjs.com/package/random-seed-weighted-chooser).
+
 ## Installation
 
 ```bash
