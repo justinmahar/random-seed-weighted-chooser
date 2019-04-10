@@ -1,6 +1,6 @@
 {
   "name": "random-seed-weighted-chooser",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "A random weighted item chooser with custom seed option for JavaScript and TypeScript.",
   "main": "index.js",
   "scripts": {

@@ -1,10 +1,12 @@
 # Weighted Chooser With Random Seed
 
-A random weighted item chooser with custom seed option for JavaScript and TypeScript. I created this project because the other `npm` weighted choosers weren't very flexible.
+A random weighted item chooser with custom seed option for JavaScript and [TypeScript](https://www.typescriptlang.org/). I created this project because the other `npm` weighted choosers weren't very flexible.
 
-This module allows you to choose an index from an array of weights (simplest case), or an object from an array of objects that each have a customizable `"weight"` property. It also allows you to specify your own seed for the pseudorandom number generator (PRNG).
+This module allows you to choose an index from an array of weights (simplest case), or an object from an array of objects that each have a customizable `"weight"` property. 
 
-This project is [available via npm as a JavaScript CommonJS module](https://www.npmjs.com/package/random-seed-weighted-chooser).
+It also allows you to specify default weights, and to use your own seed for the pseudorandom number generator (PRNG).
+
+This project is [available via npm as a JavaScript CommonJS module](https://www.npmjs.com/package/random-seed-weighted-chooser) and the [source is available on GitHub](https://github.com/justinmahar/random-seed-weighted-chooser).
 
 ## Installation
 
