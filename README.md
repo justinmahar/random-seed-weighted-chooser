@@ -1,3 +1,3 @@
 # Weighted Chooser With Random Seed
 
-TBD
+A random weighted item chooser with custom seed option for JavaScript and TypeScript.
