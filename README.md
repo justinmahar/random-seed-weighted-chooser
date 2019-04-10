@@ -10,7 +10,10 @@ $ npm i random-seed-weighted-chooser
 
 ## Usage
 
-Two ways: array of weights, or array of objects with weight properties.
+Two ways: 
+
+- Array of weights. Randomly choose an index based on weights.
+- Array of objects with weight properties. Randomly choose an object based on weights.
 
 ### Array Of Weights
 
@@ -18,10 +21,10 @@ You can use an array of weights to randomly choose an index in that array.
 
 ```js
 const chooser = require("random-seed-weighted-chooser").default;
-...
+// ...
 // Returns an index using the weights to determine chance, or -1 if empty.
 chooser.chooseWeightedIndex(arrayOfWeights);
-// You can use a custom seed. If not specified, Math.random() is used as the seed.
+// Optionally, you can use a custom seed. Math.random() is used as the default.
 chooser.chooseWeightedIndex(arrayOfWeights, seed);
 ```
 
@@ -31,11 +34,11 @@ You can use an array of objects, each with a weight property, to randomly choose
 
 ```js
 const chooser = require("random-seed-weighted-chooser").default;
-...
+// ...
 // Expects each object to have a "weight" property. Returns null if array is empty.
-chooser.chooseWeightedObject(iceCreamFlavors);
-// Uses "rating" property as weight, default weight of 2.5 if "rating" is missing, and custom seed.
-chooser.chooseWeightedObject(restaurantRatings, "rating", 2.5, seed);
+chooser.chooseWeightedObject(arrayOfObjects);
+// Uses custom property key, default weight if weight property is missing, and custom seed.
+chooser.chooseWeightedObject(arrayOfObjects, weightPropertyKey, defaultWeight, seed);
 ```
 
 ## Examples
