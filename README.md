@@ -81,7 +81,7 @@ chooser.chooseWeightedIndex(arrayOfWeights, seed); // Always 1
 
 ```js
 let iceCreamFlavors = [
-  { flavor: "chocolate", weight: 5 },
+  { flavor: "chocolate", weight: 3 },
   { flavor: "vanilla", weight: 1 },
   { flavor: "piña colada", weight: 6 }
 ];
@@ -90,7 +90,7 @@ let iceCreamFlavors = [
 // - Looks for a property called "weight"; default 1 if not found
 // - Uses Math.random() as the seed.
 chooser.chooseWeightedObject(iceCreamFlavors);
-// chocolate = 50% chance
+// chocolate = 30% chance
 // vanilla = 10% chance
 // piña colada = 60% chance
 ```
