@@ -15,7 +15,7 @@ Two ways:
 - Array of weights. Randomly choose an index based on weights.
 - Array of objects with weight properties. Randomly choose an object based on weights.
 
-### Array Of Weights
+### Using An Array Of Weights
 
 You can use an array of weights to randomly choose an index in that array.
 
@@ -26,13 +26,13 @@ const chooser = require("random-seed-weighted-chooser").default;
 chooser.chooseWeightedIndex(arrayOfWeights);
 // Optionally, you can use a custom seed. Math.random() is used as the default.
 chooser.chooseWeightedIndex(arrayOfWeights, seed);
-// You can also specify a default weight to use if your array contains non-numbers.
+// You can also specify a default weight to use if your array contains non-numbers (this is a failsafe).
 chooser.chooseWeightedIndex(arrayOfWeights, seed, defaultWeight);
 ```
 
 If all weights are 0, -1 is returned.
 
-### Array Of Objects With Weight Properties
+### Using An Array Of Objects With Weight Properties
 
 You can use an array of objects, each with a weight property, to randomly choose one of those objects.
 
@@ -47,9 +47,16 @@ chooser.chooseWeightedObject(arrayOfObjects, weightPropertyKey, defaultWeight, s
 
 If all weights are 0, null is returned.
 
+## Bad Input
+
+For any non-object where an object is expected, or non-number weight where a number is expected:
+ - That item will have the default weight. This will be `1` or the optional default value if provided.
+
+All negative weights are treated as positive.
+
 ## Examples
 
-### Weighted Random Index Choice
+### Weighted Random Index Choice Example
 
 If all you need is an index, you can just use a number[] array of weights, like so:
 
@@ -83,7 +90,7 @@ chooser.chooseWeightedIndex(arrayOfWeights, seed); // 1
 chooser.chooseWeightedIndex(arrayOfWeights, seed); // Always 1
 ```
 
-### Weighted Random Item Choice
+### Weighted Random Item Choice Example
 
 ```js
 let iceCreamFlavors = [
@@ -134,10 +141,27 @@ chooser.chooseWeightedObject(restaurantRatings, "rating", 2.5, seed);
 // Edgy Burrito = 21.6% chance (no rating property, so uses 2.5 default)
 ```
 
-## Bad Input
+### Lottery Example
 
-For any non-object where an object is expected, or non-number weight where a number is expected:
- - That item will have the default weight. This will be `1` or the optional default value if provided.
+Below we have a lottery with 100000 items in the bag (weights total 100000).
+
+```js
+let lottery = [
+  { name: "Impossible", weight: 0 },
+  { name: "Nearly impossible", weight: 1 },
+  { name: "Very low chance", weight: 9 },
+  { name: "Low chance", weight: 90 },
+  { name: "Medium chance", weight: 900 },
+  { name: "High chance", weight: 9000 },
+  { name: "Very high chance", weight: 90000 }
+];
+
+chooser.chooseWeightedObject(lottery);
+// "Nearly impossible" has 1/100000 odds of occurring.
+// The seed "RaNdom-Seed-WeiGHted-CHooser" causes it to be chosen :]
+```
+
+# Happy Random Seed Weighted Choosing!
 
 ## ISC License
 
