@@ -26,15 +26,15 @@ Two ways:
 You can use an array of weight numbers to randomly choose an index in that array.
 
 ```js
-import Chooser from 'random-seed-weighted-chooser';
+const chooser = require("random-seed-weighted-chooser").default;
 // ...
 // Returns an index using the weights to determine chance, or -1 if empty.
-Chooser.chooseWeightedIndex(arrayOfWeights);
+chooser.chooseWeightedIndex(arrayOfWeights);
 // Optionally, you can use a custom seed. Math.random() is used as the default.
-Chooser.chooseWeightedIndex(arrayOfWeights, seed);
+chooser.chooseWeightedIndex(arrayOfWeights, seed);
 // You can also specify a default weight to use if your array contains 
 // non-numbers (this is a failsafe).
-Chooser.chooseWeightedIndex(arrayOfWeights, seed, defaultWeight);
+chooser.chooseWeightedIndex(arrayOfWeights, seed, defaultWeight);
 ```
 
 If all weights are 0, -1 is returned.
@@ -44,12 +44,12 @@ If all weights are 0, -1 is returned.
 You can use an array of objects, each with a weight property and number value, to randomly choose one of those objects.
 
 ```js
-import Chooser from 'random-seed-weighted-chooser';
+const chooser = require("random-seed-weighted-chooser").default;
 // ...
 // Expects each object to have a "weight" property. Returns null if array is empty.
-Chooser.chooseWeightedObject(arrayOfObjects);
+chooser.chooseWeightedObject(arrayOfObjects);
 // Uses custom property key, default weight (if weight property is missing), and custom seed.
-Chooser.chooseWeightedObject(
+chooser.chooseWeightedObject(
   arrayOfObjects,
   weightPropertyKey,
   defaultWeight,
@@ -74,13 +74,13 @@ All negative weights are treated as positive.
 If all you need is an index, you can just use a number[] array of weights, like so:
 
 ```js
-import Chooser from 'random-seed-weighted-chooser';
+const chooser = require("random-seed-weighted-chooser").default;
 
 let arrayOfWeights = [10, 50, 45, 5];
 
 // Returns the randomly chosen index or -1 if the array is empty. 
 // Uses Math.random() as the seed.
-Chooser.chooseWeightedIndex(arrayOfWeights);
+chooser.chooseWeightedIndex(arrayOfWeights);
 // 10% chance of returning 0
 // 50% chance of returning 1
 // 45% chance of returning 2
@@ -95,13 +95,13 @@ So if you want to provide your own seed, you can. Seeds can be any value (string
 // Returns the randomly chosen index or -1 if the array is empty.
 // Will return the same result until the seed changes.
 let seed = "myseed";
-Chooser.chooseWeightedIndex(arrayOfWeights, seed); // 3
-Chooser.chooseWeightedIndex(arrayOfWeights, seed); // 3
-Chooser.chooseWeightedIndex(arrayOfWeights, seed); // Always 3
+chooser.chooseWeightedIndex(arrayOfWeights, seed); // 3
+chooser.chooseWeightedIndex(arrayOfWeights, seed); // 3
+chooser.chooseWeightedIndex(arrayOfWeights, seed); // Always 3
 seed = 12345;
-Chooser.chooseWeightedIndex(arrayOfWeights, seed); // 1
-Chooser.chooseWeightedIndex(arrayOfWeights, seed); // 1
-Chooser.chooseWeightedIndex(arrayOfWeights, seed); // Always 1
+chooser.chooseWeightedIndex(arrayOfWeights, seed); // 1
+chooser.chooseWeightedIndex(arrayOfWeights, seed); // 1
+chooser.chooseWeightedIndex(arrayOfWeights, seed); // Always 1
 ```
 
 ### Weighted Random Item Choice Example
@@ -116,7 +116,7 @@ let iceCreamFlavors = [
 // Returns the randomly chosen object based on their weights.
 // - Looks for a property called "weight"; default 1 if not found
 // - Uses Math.random() as the seed.
-Chooser.chooseWeightedObject(iceCreamFlavors);
+chooser.chooseWeightedObject(iceCreamFlavors);
 // chocolate = 30% chance
 // vanilla = 10% chance
 // piña colada = 60% chance
@@ -132,7 +132,7 @@ let restaurantRatings = [
 ];
 
 // This example uses restaurant ratings as weights.
-Chooser.chooseWeightedObject(restaurantRatings, "rating");
+chooser.chooseWeightedObject(restaurantRatings, "rating");
 // Chipotle = 40.8% chance
 // Moe's = 47.6% chance
 // Dirty Bill's = 11.7% chance
@@ -149,7 +149,7 @@ let restaurantRatings = [
 
 // Uses "rating" as weight, a default weight of 2.5, and a custom seed.
 let seed = "Brianna's pick";
-Chooser.chooseWeightedObject(restaurantRatings, "rating", 2.5, seed);
+chooser.chooseWeightedObject(restaurantRatings, "rating", 2.5, seed);
 // Chipotle = 36.2% chance
 // Moe's = 42.2% chance
 // Edgy Burrito = 21.6% chance (no rating property, so uses 2.5 default)
@@ -170,7 +170,7 @@ let lottery = [
   { name: "Very high chance", weight: 90000 }
 ];
 
-Chooser.chooseWeightedObject(lottery);
+chooser.chooseWeightedObject(lottery);
 // "Nearly impossible" has 1/100000 odds of occurring.
 // The seed "RaNdom-Seed-WeiGHted-CHooser" causes it to be chosen :]
 ```
