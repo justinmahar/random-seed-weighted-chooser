@@ -120,13 +120,18 @@ let restaurantRatings = [
   { name: "Edgy Burrito" } // Unrated restaurant
 ];
 
-// Uses a default weight of 2.5 and a custom seed.
+// Uses "rating" as weight, a default weight of 2.5, and a custom seed.
 let seed = "Brianna's pick";
 chooser.chooseWeightedObject(restaurantRatings, "rating", 2.5, seed);
 // Chipotle = 36.2% chance
 // Moe's = 42.2% chance
-// Edgy Burrito = 21.6% chance
+// Edgy Burrito = 21.6% chance (no rating property, so uses 2.5 default)
 ```
+
+## Bad Input
+
+For any non-object where an object is expected, or non-number weight where a number is expected:
+ - That item will have the default weight. This will be `1` or the optional default value if provided.
 
 ## ISC License
 
