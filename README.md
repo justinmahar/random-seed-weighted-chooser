@@ -1,6 +1,8 @@
 # Weighted Chooser With Random Seed
 
-A random weighted item chooser with custom seed option for JavaScript and TypeScript.
+A random weighted item chooser with custom seed option for JavaScript and TypeScript. I created this project because the other `npm` weighted choosers weren't very flexible.
+
+This module allows you to choose an index from an array of weights (simplest case), or an object from an array of objects that each have a customizable `"weight"` property. It also allows you to specify your own seed for the pseudorandom number generator (PRNG).
 
 This project is [available via npm as a JavaScript CommonJS module](https://www.npmjs.com/package/random-seed-weighted-chooser).
 
@@ -12,14 +14,14 @@ $ npm i random-seed-weighted-chooser
 
 ## Usage
 
-Two ways: 
+Two ways:
 
-- Array of weights. Randomly choose an index based on weights.
-- Array of objects with weight properties. Randomly choose an object based on weights.
+- Randomly choose an index from an **array of weights**.
+- Randomly choose an object from an **array of objects with weight properties**.
 
 ### Using An Array Of Weights
 
-You can use an array of weights to randomly choose an index in that array.
+You can use an array of weight numbers to randomly choose an index in that array.
 
 ```js
 const chooser = require("random-seed-weighted-chooser").default;
@@ -28,7 +30,8 @@ const chooser = require("random-seed-weighted-chooser").default;
 chooser.chooseWeightedIndex(arrayOfWeights);
 // Optionally, you can use a custom seed. Math.random() is used as the default.
 chooser.chooseWeightedIndex(arrayOfWeights, seed);
-// You can also specify a default weight to use if your array contains non-numbers (this is a failsafe).
+// You can also specify a default weight to use if your array contains 
+// non-numbers (this is a failsafe).
 chooser.chooseWeightedIndex(arrayOfWeights, seed, defaultWeight);
 ```
 
@@ -36,15 +39,20 @@ If all weights are 0, -1 is returned.
 
 ### Using An Array Of Objects With Weight Properties
 
-You can use an array of objects, each with a weight property, to randomly choose one of those objects.
+You can use an array of objects, each with a weight property and number value, to randomly choose one of those objects.
 
 ```js
 const chooser = require("random-seed-weighted-chooser").default;
 // ...
 // Expects each object to have a "weight" property. Returns null if array is empty.
 chooser.chooseWeightedObject(arrayOfObjects);
-// Uses custom property key, default weight if weight property is missing, and custom seed.
-chooser.chooseWeightedObject(arrayOfObjects, weightPropertyKey, defaultWeight, seed);
+// Uses custom property key, default weight (if weight property is missing), and custom seed.
+chooser.chooseWeightedObject(
+  arrayOfObjects,
+  weightPropertyKey,
+  defaultWeight,
+  seed
+);
 ```
 
 If all weights are 0, null is returned.
@@ -52,7 +60,8 @@ If all weights are 0, null is returned.
 ## Bad Input
 
 For any non-object where an object is expected, or non-number weight where a number is expected:
- - That item will have the default weight. This will be `1` or the optional default value if provided.
+
+- That item will have the default weight. This will be `1` or the optional default value if provided.
 
 All negative weights are treated as positive.
 
@@ -67,7 +76,8 @@ const chooser = require("random-seed-weighted-chooser").default;
 
 let arrayOfWeights = [10, 50, 45, 5];
 
-// Returns the randomly chosen index or -1 if the array is empty. Uses Math.random() as the seed.
+// Returns the randomly chosen index or -1 if the array is empty. 
+// Uses Math.random() as the seed.
 chooser.chooseWeightedIndex(arrayOfWeights);
 // 10% chance of returning 0
 // 50% chance of returning 1
