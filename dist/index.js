@@ -1,5 +1,3 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
 /**
  * This PRNG allows seeding, unlike the lame `Math.random()`.
  * Use it like so:
@@ -122,4 +120,4 @@ var Chooser = /** @class */ (function () {
     return Chooser;
 }());
 var chooser = new Chooser();
-exports.default = chooser;
+export default chooser;
