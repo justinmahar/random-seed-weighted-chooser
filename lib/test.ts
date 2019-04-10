@@ -1,18 +1,18 @@
-import chooser from "./index";
+import Chooser from "./index";
 
 let arrayOfWeights = [10, 50, 45, 5];
 
 // Returns the randomly chosen index or -1 if the array is empty. Uses Math.random() as the seed.
-console.log(chooser.chooseWeightedIndex(arrayOfWeights));
-console.log(chooser.chooseWeightedIndex(arrayOfWeights));
-console.log(chooser.chooseWeightedIndex(arrayOfWeights));
-console.log(chooser.chooseWeightedIndex(arrayOfWeights));
-console.log(chooser.chooseWeightedIndex(arrayOfWeights));
-console.log(chooser.chooseWeightedIndex(arrayOfWeights));
-console.log(chooser.chooseWeightedIndex(arrayOfWeights));
-console.log(chooser.chooseWeightedIndex(arrayOfWeights));
-console.log(chooser.chooseWeightedIndex(arrayOfWeights));
-console.log(chooser.chooseWeightedIndex(arrayOfWeights));
+console.log(Chooser.chooseWeightedIndex(arrayOfWeights));
+console.log(Chooser.chooseWeightedIndex(arrayOfWeights));
+console.log(Chooser.chooseWeightedIndex(arrayOfWeights));
+console.log(Chooser.chooseWeightedIndex(arrayOfWeights));
+console.log(Chooser.chooseWeightedIndex(arrayOfWeights));
+console.log(Chooser.chooseWeightedIndex(arrayOfWeights));
+console.log(Chooser.chooseWeightedIndex(arrayOfWeights));
+console.log(Chooser.chooseWeightedIndex(arrayOfWeights));
+console.log(Chooser.chooseWeightedIndex(arrayOfWeights));
+console.log(Chooser.chooseWeightedIndex(arrayOfWeights));
 // 10% chance of returning 0
 // 50% chance of returning 1
 // 45% chance of returning 2
@@ -26,16 +26,16 @@ let iceCreamFlavors = [
 ];
 
 // Returns the randomly chosen object based on their weights.
-console.log(chooser.chooseWeightedObject(iceCreamFlavors));
-console.log(chooser.chooseWeightedObject(iceCreamFlavors));
-console.log(chooser.chooseWeightedObject(iceCreamFlavors));
-console.log(chooser.chooseWeightedObject(iceCreamFlavors));
-console.log(chooser.chooseWeightedObject(iceCreamFlavors));
-console.log(chooser.chooseWeightedObject(iceCreamFlavors));
-console.log(chooser.chooseWeightedObject(iceCreamFlavors));
-console.log(chooser.chooseWeightedObject(iceCreamFlavors));
-console.log(chooser.chooseWeightedObject(iceCreamFlavors));
-console.log(chooser.chooseWeightedObject(iceCreamFlavors));
+console.log(Chooser.chooseWeightedObject(iceCreamFlavors));
+console.log(Chooser.chooseWeightedObject(iceCreamFlavors));
+console.log(Chooser.chooseWeightedObject(iceCreamFlavors));
+console.log(Chooser.chooseWeightedObject(iceCreamFlavors));
+console.log(Chooser.chooseWeightedObject(iceCreamFlavors));
+console.log(Chooser.chooseWeightedObject(iceCreamFlavors));
+console.log(Chooser.chooseWeightedObject(iceCreamFlavors));
+console.log(Chooser.chooseWeightedObject(iceCreamFlavors));
+console.log(Chooser.chooseWeightedObject(iceCreamFlavors));
+console.log(Chooser.chooseWeightedObject(iceCreamFlavors));
 // chocolate = 30% chance
 // vanilla = 10% chance
 // poop = 0% chance
@@ -49,10 +49,10 @@ let allZeroesObj = [
 ];
 
 let arrayOfZeroes = [0, 0, 0, 0];
-console.log(chooser.chooseWeightedIndex(arrayOfZeroes)); // -1
-console.log(chooser.chooseWeightedIndex([])); // -1
-console.log(chooser.chooseWeightedObject(allZeroesObj)); // null
-console.log(chooser.chooseWeightedObject([])); // null
+console.log(Chooser.chooseWeightedIndex(arrayOfZeroes)); // -1
+console.log(Chooser.chooseWeightedIndex([])); // -1
+console.log(Chooser.chooseWeightedObject(allZeroesObj)); // null
+console.log(Chooser.chooseWeightedObject([])); // null
 
 let restaurantRatings = [
   { name: "Chipotle", rating: 4.2 },
@@ -62,42 +62,42 @@ let restaurantRatings = [
 
 // Uses "rating" as weight, a default weight of 2.5
 console.log(
-  chooser.chooseWeightedObject(restaurantRatings, "rating", 2.5, Math.random())
+  Chooser.chooseWeightedObject(restaurantRatings, "rating", 2.5, Math.random())
 );
 console.log(
-  chooser.chooseWeightedObject(restaurantRatings, "rating", 2.5, Math.random())
+  Chooser.chooseWeightedObject(restaurantRatings, "rating", 2.5, Math.random())
 );
 console.log(
-  chooser.chooseWeightedObject(restaurantRatings, "rating", 2.5, Math.random())
+  Chooser.chooseWeightedObject(restaurantRatings, "rating", 2.5, Math.random())
 );
 console.log(
-  chooser.chooseWeightedObject(restaurantRatings, "rating", 2.5, Math.random())
+  Chooser.chooseWeightedObject(restaurantRatings, "rating", 2.5, Math.random())
 );
 console.log(
-  chooser.chooseWeightedObject(restaurantRatings, "rating", 2.5, Math.random())
+  Chooser.chooseWeightedObject(restaurantRatings, "rating", 2.5, Math.random())
 );
 console.log(
-  chooser.chooseWeightedObject(restaurantRatings, "rating", 2.5, Math.random())
+  Chooser.chooseWeightedObject(restaurantRatings, "rating", 2.5, Math.random())
 );
 console.log(
-  chooser.chooseWeightedObject(restaurantRatings, "rating", 2.5, Math.random())
+  Chooser.chooseWeightedObject(restaurantRatings, "rating", 2.5, Math.random())
 );
 console.log("Next 5 use the same seed:");
 let seed = "Brianna's pick"; // Custom seed
 console.log(
-  chooser.chooseWeightedObject(restaurantRatings, "rating", 2.5, seed)
+  Chooser.chooseWeightedObject(restaurantRatings, "rating", 2.5, seed)
 );
 console.log(
-  chooser.chooseWeightedObject(restaurantRatings, "rating", 2.5, seed)
+  Chooser.chooseWeightedObject(restaurantRatings, "rating", 2.5, seed)
 );
 console.log(
-  chooser.chooseWeightedObject(restaurantRatings, "rating", 2.5, seed)
+  Chooser.chooseWeightedObject(restaurantRatings, "rating", 2.5, seed)
 );
 console.log(
-  chooser.chooseWeightedObject(restaurantRatings, "rating", 2.5, seed)
+  Chooser.chooseWeightedObject(restaurantRatings, "rating", 2.5, seed)
 );
 console.log(
-  chooser.chooseWeightedObject(restaurantRatings, "rating", 2.5, seed)
+  Chooser.chooseWeightedObject(restaurantRatings, "rating", 2.5, seed)
 );
 // Chipotle = 36.2% chance
 // Moe's = 42.2% chance
@@ -105,19 +105,19 @@ console.log(
 
 console.log("Next 5 use missing property (equal chance of all happening):");
 console.log(
-  chooser.chooseWeightedObject(restaurantRatings, "blah blah missing property")
+  Chooser.chooseWeightedObject(restaurantRatings, "blah blah missing property")
 );
 console.log(
-  chooser.chooseWeightedObject(restaurantRatings, "blah blah missing property")
+  Chooser.chooseWeightedObject(restaurantRatings, "blah blah missing property")
 );
 console.log(
-  chooser.chooseWeightedObject(restaurantRatings, "blah blah missing property")
+  Chooser.chooseWeightedObject(restaurantRatings, "blah blah missing property")
 );
 console.log(
-  chooser.chooseWeightedObject(restaurantRatings, "blah blah missing property")
+  Chooser.chooseWeightedObject(restaurantRatings, "blah blah missing property")
 );
 console.log(
-  chooser.chooseWeightedObject(restaurantRatings, "blah blah missing property")
+  Chooser.chooseWeightedObject(restaurantRatings, "blah blah missing property")
 );
 
 console.log("Powers of 10 lottery (max weight 100000):");
@@ -132,23 +132,23 @@ let lottery = [
   { name: "Very high chance", weight: 90000 }
 ];
 
-console.log(chooser.chooseWeightedObject(lottery));
-console.log(chooser.chooseWeightedObject(lottery));
-console.log(chooser.chooseWeightedObject(lottery));
-console.log(chooser.chooseWeightedObject(lottery));
-console.log(chooser.chooseWeightedObject(lottery));
-console.log(chooser.chooseWeightedObject(lottery));
-console.log(chooser.chooseWeightedObject(lottery));
-console.log(chooser.chooseWeightedObject(lottery));
-console.log(chooser.chooseWeightedObject(lottery));
-console.log(chooser.chooseWeightedObject(lottery));
+console.log(Chooser.chooseWeightedObject(lottery));
+console.log(Chooser.chooseWeightedObject(lottery));
+console.log(Chooser.chooseWeightedObject(lottery));
+console.log(Chooser.chooseWeightedObject(lottery));
+console.log(Chooser.chooseWeightedObject(lottery));
+console.log(Chooser.chooseWeightedObject(lottery));
+console.log(Chooser.chooseWeightedObject(lottery));
+console.log(Chooser.chooseWeightedObject(lottery));
+console.log(Chooser.chooseWeightedObject(lottery));
+console.log(Chooser.chooseWeightedObject(lottery));
 
-console.log('Lottery with seed "RaNdom-Seed-WeiGHted-CHooser":');
+console.log('Lottery with seed "RaNdom-Seed-WeiGHted-Chooser":');
 console.log(
-  chooser.chooseWeightedObject(
+  Chooser.chooseWeightedObject(
     lottery,
     "weight",
     1,
-    "RaNdom-Seed-WeiGHted-CHooser"
+    "RaNdom-Seed-WeiGHted-Chooser"
   )
 );

@@ -1,7 +1,7 @@
 /**
- * Contains chooser functions.
+ * Contains static weighted chooser functions.
  */
-declare class Chooser {
+export default class Chooser {
     /**
      * Choose an index based on the weights provided in the number array. Higher weights increase likeliness of being chosen.
      * Returns the chosen index, or `-1` if the array was empty or all weights were `0`.
@@ -18,7 +18,7 @@ declare class Chooser {
      *
      * @returns The chosen index as a number, or `-1` if the array was empty or all weights were `0`.
      */
-    chooseWeightedIndex: (weights: number[], seed?: any, defaultWeight?: number) => number;
+    static chooseWeightedIndex: (weights: number[], seed?: any, defaultWeight?: number) => number;
     /**
      * Choose an object based on the `"weight"` properties in the object within the provided array.
      * Higher weights increase likeliness of being chosen.
@@ -37,7 +37,5 @@ declare class Chooser {
      *
      * @returns The chosen object, or `null` if the array was empty or all weights were `0`.
      */
-    chooseWeightedObject: (arrayOfObjects: object[], weightPropertyKey?: any, defaultWeight?: number, seed?: any) => object | null;
+    static chooseWeightedObject: (arrayOfObjects: object[], weightPropertyKey?: any, defaultWeight?: number, seed?: any) => object | null;
 }
-declare const chooser: Chooser;
-export default chooser;

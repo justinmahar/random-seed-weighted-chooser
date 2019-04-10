@@ -9,9 +9,9 @@
 const seedrandom = require("seedrandom");
 
 /**
- * Contains chooser functions.
+ * Contains static weighted chooser functions.
  */
-class Chooser {
+export default class Chooser {
   /**
    * Choose an index based on the weights provided in the number array. Higher weights increase likeliness of being chosen.
    * Returns the chosen index, or `-1` if the array was empty or all weights were `0`.
@@ -28,7 +28,7 @@ class Chooser {
    *
    * @returns The chosen index as a number, or `-1` if the array was empty or all weights were `0`.
    */
-  chooseWeightedIndex = (
+  static chooseWeightedIndex = (
     weights: number[],
     seed: any = Math.random(),
     defaultWeight: number = 1
@@ -85,7 +85,7 @@ class Chooser {
    *
    * @returns The chosen object, or `null` if the array was empty or all weights were `0`.
    */
-  chooseWeightedObject = (
+  static chooseWeightedObject = (
     arrayOfObjects: object[],
     weightPropertyKey: any = "weight",
     defaultWeight: number = 1,
@@ -130,6 +130,3 @@ class Chooser {
     }
   };
 }
-
-const chooser: Chooser = new Chooser();
-export default chooser;
