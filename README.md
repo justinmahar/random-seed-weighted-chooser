@@ -26,7 +26,11 @@ const chooser = require("random-seed-weighted-chooser").default;
 chooser.chooseWeightedIndex(arrayOfWeights);
 // Optionally, you can use a custom seed. Math.random() is used as the default.
 chooser.chooseWeightedIndex(arrayOfWeights, seed);
+// You can also specify a default weight to use if your array contains non-numbers.
+chooser.chooseWeightedIndex(arrayOfWeights, seed, defaultWeight);
 ```
+
+If all weights are 0, -1 is returned.
 
 ### Array Of Objects With Weight Properties
 
@@ -40,6 +44,8 @@ chooser.chooseWeightedObject(arrayOfObjects);
 // Uses custom property key, default weight if weight property is missing, and custom seed.
 chooser.chooseWeightedObject(arrayOfObjects, weightPropertyKey, defaultWeight, seed);
 ```
+
+If all weights are 0, null is returned.
 
 ## Examples
 
@@ -95,7 +101,7 @@ chooser.chooseWeightedObject(iceCreamFlavors);
 // piña colada = 60% chance
 ```
 
-You can use any number property as the weight. Just provide it as the second argument, like so:
+You can use any number property as the weight. Just provide the property key as the second argument, like so:
 
 ```js
 let restaurantRatings = [

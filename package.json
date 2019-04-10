@@ -1,0 +1,33 @@
+{
+  "name": "random-seed-weighted-chooser",
+  "version": "1.0.0",
+  "description": "A random weighted item chooser with custom seed option for JavaScript and TypeScript.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Test not written\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/justinmahar/random-seed-weighted-chooser.git"
+  },
+  "keywords": [
+    "random",
+    "seed",
+    "weighted",
+    "chooser",
+    "PRNG"
+  ],
+  "author": "Justin Mahar <thejustinmahar@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/justinmahar/random-seed-weighted-chooser/issues"
+  },
+  "homepage": "https://github.com/justinmahar/random-seed-weighted-chooser#readme",
+  "devDependencies": {
+    "typescript": "^3.4.3",
+    "@types/node": "^11.13.2"
+  },
+  "dependencies": {
+    "seedrandom": "^3.0.1"
+  }
+}
