@@ -18,7 +18,7 @@ You can use an array of weights to randomly choose an index in that array.
 
 ```js
 const chooser = require("random-seed-weighted-chooser").default;
-let arrayOfWeights = [10, 50, 45, 5];
+...
 // Returns an index using the weights to determine chance, or -1 if empty.
 chooser.chooseWeightedIndex(arrayOfWeights);
 // You can use a custom seed. If not specified, Math.random() is used as the seed.
@@ -31,7 +31,7 @@ You can use an array of objects, each with a weight property, to randomly choose
 
 ```js
 const chooser = require("random-seed-weighted-chooser").default;
-let arrayOfWeights = [10, 50, 45, 5];
+...
 // Expects each object to have a "weight" property. Returns null if array is empty.
 chooser.chooseWeightedObject(iceCreamFlavors);
 // Uses "rating" property as weight, default weight of 2.5 if "rating" is missing, and custom seed.
