@@ -119,7 +119,7 @@ export default class Chooser {
     });
 
     // Choose an index based on the weights...
-    let chosenIndex: number = this.chooseWeightedIndex(weights, seed, defaultWeight);
+    let chosenIndex: number = Chooser.chooseWeightedIndex(weights, seed, defaultWeight);
 
     // If an index was chosen, return the object for that index.
     if (chosenIndex >= 0) {

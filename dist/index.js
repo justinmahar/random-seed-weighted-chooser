@@ -98,7 +98,7 @@ Chooser.chooseWeightedObject = (arrayOfObjects, weightPropertyKey = "weight", de
         return currWeight;
     });
     // Choose an index based on the weights...
-    let chosenIndex = this.chooseWeightedIndex(weights, seed, defaultWeight);
+    let chosenIndex = Chooser.chooseWeightedIndex(weights, seed, defaultWeight);
     // If an index was chosen, return the object for that index.
     if (chosenIndex >= 0) {
         return arrayOfObjects[chosenIndex];
