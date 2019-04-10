@@ -1,9 +1,9 @@
 {
   "name": "random-seed-weighted-chooser",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "A random weighted item chooser with custom seed option for JavaScript and TypeScript.",
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
   "scripts": {
     "deploy": "npm publish && git push",
     "prepublish": "npm run build",
