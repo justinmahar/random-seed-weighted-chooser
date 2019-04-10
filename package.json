@@ -5,7 +5,7 @@
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "scripts": {
-    "deploy": "npm publish && git push",
+    "deploy": "npm run build && npm publish && git push",
     "prepublish": "npm run build",
     "build": "tsc",
     "watch": "tsc --watch",
