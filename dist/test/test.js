@@ -71,10 +71,14 @@ describe("Chooser function test", function () {
         expect(val).to.be.null;
     });
     it("should return null when choosing weighted object from a non-array", function () {
-        expect(index_1.default.chooseWeightedObject({ "mykey": "someval" })).to.be.null;
-        expect(index_1.default.chooseWeightedObject("blah")).to.be.null;
-        expect(index_1.default.chooseWeightedObject(12345)).to.be.null;
-        expect(index_1.default.chooseWeightedObject(3.14159)).to.be.null;
+        var val = { mykey: "someval" };
+        expect(index_1.default.chooseWeightedObject(val)).to.be.null;
+        val = "blah";
+        expect(index_1.default.chooseWeightedObject(val)).to.be.null;
+        val = 12345;
+        expect(index_1.default.chooseWeightedObject(val)).to.be.null;
+        val = 3.14159;
+        expect(index_1.default.chooseWeightedObject(val)).to.be.null;
     });
     it("should return -1 when choosing weighted index from an empty list", function () {
         var restaurants = [];
@@ -83,13 +87,17 @@ describe("Chooser function test", function () {
     });
     it("should return -1 when choosing weighted index from null value", function () {
         var restaurants = null;
-        var val = index_1.default.chooseWeightedIndex(null);
+        var val = index_1.default.chooseWeightedIndex(restaurants);
         expect(val).to.equal(-1);
     });
     it("should return -1 when choosing weighted index from a non-array", function () {
-        expect(index_1.default.chooseWeightedIndex({ "mykey": "someval" })).to.equal(-1);
-        expect(index_1.default.chooseWeightedIndex("blah")).to.equal(-1);
-        expect(index_1.default.chooseWeightedIndex(12345)).to.equal(-1);
-        expect(index_1.default.chooseWeightedIndex(3.14159)).to.equal(-1);
+        var val = { mykey: "someval" };
+        expect(index_1.default.chooseWeightedIndex(val)).to.equal(-1);
+        val = "blah";
+        expect(index_1.default.chooseWeightedIndex(val)).to.equal(-1);
+        val = 12345;
+        expect(index_1.default.chooseWeightedIndex(val)).to.equal(-1);
+        val = 3.14159;
+        expect(index_1.default.chooseWeightedIndex(val)).to.equal(-1);
     });
 });

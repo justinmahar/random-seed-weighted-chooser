@@ -68,42 +68,50 @@ describe("Chooser function test", () => {
     let item: any = Chooser.chooseWeightedObject(restaurants);
     expect(["Chipotle", "Moe's", "Edgy Burrito"]).to.include(item.name);
   });
-  
+
   it("should return null when choosing weighted object from an empty list", () => {
-    let restaurants:any = [];
+    let restaurants: any = [];
     let val: any = Chooser.chooseWeightedObject(restaurants);
-    expect(val).to.be.null
+    expect(val).to.be.null;
   });
-  
+
   it("should return null when choosing weighted object from a null value", () => {
-    let restaurants:any = null;
+    let restaurants: any = null;
     let val: any = Chooser.chooseWeightedObject(restaurants);
-    expect(val).to.be.null
+    expect(val).to.be.null;
   });
-  
+
   it("should return null when choosing weighted object from a non-array", () => {
-    expect(Chooser.chooseWeightedObject({"mykey":"someval"})).to.be.null;
-    expect(Chooser.chooseWeightedObject("blah")).to.be.null;
-    expect(Chooser.chooseWeightedObject(12345)).to.be.null;
-    expect(Chooser.chooseWeightedObject(3.14159)).to.be.null;
+    let val: any = { mykey: "someval" };
+    expect(Chooser.chooseWeightedObject(val)).to.be.null;
+    val = "blah";
+    expect(Chooser.chooseWeightedObject(val)).to.be.null;
+    val = 12345;
+    expect(Chooser.chooseWeightedObject(val)).to.be.null;
+    val = 3.14159;
+    expect(Chooser.chooseWeightedObject(val)).to.be.null;
   });
-  
+
   it("should return -1 when choosing weighted index from an empty list", () => {
-    let restaurants:any = [];
+    let restaurants: any = [];
     let val: any = Chooser.chooseWeightedIndex(restaurants);
-    expect(val).to.equal(-1)
+    expect(val).to.equal(-1);
   });
-  
+
   it("should return -1 when choosing weighted index from null value", () => {
-    let restaurants:any = null;
-    let val: any = Chooser.chooseWeightedIndex(null);
-    expect(val).to.equal(-1)
+    let restaurants: any = null;
+    let val: any = Chooser.chooseWeightedIndex(restaurants);
+    expect(val).to.equal(-1);
   });
-  
+
   it("should return -1 when choosing weighted index from a non-array", () => {
-    expect(Chooser.chooseWeightedIndex({"mykey":"someval"})).to.equal(-1);
-    expect(Chooser.chooseWeightedIndex("blah")).to.equal(-1);
-    expect(Chooser.chooseWeightedIndex(12345)).to.equal(-1);
-    expect(Chooser.chooseWeightedIndex(3.14159)).to.equal(-1);
+    let val: any = { mykey: "someval" };
+    expect(Chooser.chooseWeightedIndex(val)).to.equal(-1);
+    val = "blah";
+    expect(Chooser.chooseWeightedIndex(val)).to.equal(-1);
+    val = 12345;
+    expect(Chooser.chooseWeightedIndex(val)).to.equal(-1);
+    val = 3.14159;
+    expect(Chooser.chooseWeightedIndex(val)).to.equal(-1);
   });
 });
