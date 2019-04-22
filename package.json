@@ -9,7 +9,7 @@
     "prepublish": "npm run build",
     "build": "tsc",
     "watch": "tsc --watch",
-    "test": "node ./dist/test.js"
+    "test": "mocha --reporter spec"
   },
   "repository": {
     "type": "git",
@@ -30,8 +30,12 @@
   },
   "homepage": "https://github.com/justinmahar/random-seed-weighted-chooser#readme",
   "devDependencies": {
-    "typescript": "^3.4.3",
-    "@types/node": "^11.13.2"
+    "@types/node": "^11.13.2",
+    "@types/chai": "^4.1.7",
+    "@types/mocha": "^5.2.6",
+    "chai": "^4.2.0",
+    "mocha": "^6.1.4",
+    "typescript": "^3.4.3"
   },
   "dependencies": {
     "seedrandom": "^3.0.1"
