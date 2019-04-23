@@ -9,7 +9,7 @@
     "prepublish": "npm run build",
     "build": "tsc",
     "watch": "tsc --watch",
-    "test": "mocha --reporter spec"
+    "test": "nyc mocha --reporter spec"
   },
   "repository": {
     "type": "git",
