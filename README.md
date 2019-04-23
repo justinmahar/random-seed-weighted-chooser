@@ -1,4 +1,5 @@
-[![Build Status](https://travis-ci.org/justinmahar/random-seed-weighted-chooser.svg?branch=master)](https://travis-ci.org/justinmahar/random-seed-weighted-chooser) [![HitCount](http://hits.dwyl.com/{justinmahar}/{random-seed-weighted-chooser}.svg)](http://hits.dwyl.com/{justinmahar}/{random-seed-weighted-chooser})
+[![Build Status](https://travis-ci.org/justinmahar/random-seed-weighted-chooser.svg?branch=master)](https://travis-ci.org/justinmahar/random-seed-weighted-chooser) [![codecov](https://codecov.io/gh/justinmahar/random-seed-weighted-chooser/branch/master/graph/badge.svg)](https://codecov.io/gh/justinmahar/random-seed-weighted-chooser)
+ [![HitCount](http://hits.dwyl.com/{justinmahar}/{random-seed-weighted-chooser}.svg)](http://hits.dwyl.com/{justinmahar}/{random-seed-weighted-chooser})
 
 # Weighted Chooser With Random Seed
 
