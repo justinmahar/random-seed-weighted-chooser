@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/justinmahar/random-seed-weighted-chooser.svg?branch=master)](https://travis-ci.org/justinmahar/random-seed-weighted-chooser)
+
 # Weighted Chooser With Random Seed
 
 A random weighted item chooser with custom seed option for JavaScript and [TypeScript](https://www.typescriptlang.org/). I created this project because the other `npm` weighted choosers weren't very flexible.
