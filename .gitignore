@@ -1,2 +1,7 @@
 # Dependency directories
 node_modules/
+
+# Coverage
+.nyc_output
+coverage.lcov
+coverage/
