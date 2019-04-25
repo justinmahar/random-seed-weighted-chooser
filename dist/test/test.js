@@ -80,6 +80,11 @@ describe("Chooser function test", function () {
         val = 3.14159;
         expect(index_1.default.chooseWeightedObject(val)).to.be.null;
     });
+    it("should return null when choosing weighted object from a list of objects all with weights of 0", function () {
+        var greetings = [{ value: "hi", weight: 0 }, { value: "hello", weight: 0 }, { value: "hey there!", weight: 0 }];
+        var val = index_1.default.chooseWeightedObject(greetings);
+        expect(val).to.be.null;
+    });
     it("should return -1 when choosing weighted index from an empty list", function () {
         var restaurants = [];
         var val = index_1.default.chooseWeightedIndex(restaurants);
@@ -99,5 +104,10 @@ describe("Chooser function test", function () {
         expect(index_1.default.chooseWeightedIndex(val)).to.equal(-1);
         val = 3.14159;
         expect(index_1.default.chooseWeightedIndex(val)).to.equal(-1);
+    });
+    it("should return -1 when choosing weighted index from a list of weights all with a value of 0", function () {
+        var weights = new Array(10).fill(0);
+        var val = index_1.default.chooseWeightedIndex(weights);
+        expect(val).to.equal(-1);
     });
 });

@@ -91,6 +91,12 @@ describe("Chooser function test", () => {
     val = 3.14159;
     expect(Chooser.chooseWeightedObject(val)).to.be.null;
   });
+  
+  it("should return null when choosing weighted object from a list of objects all with weights of 0", () => {
+    let greetings: any = [{value: "hi", weight: 0}, {value: "hello", weight: 0}, {value: "hey there!", weight: 0}];
+    let val: any = Chooser.chooseWeightedObject(greetings);
+    expect(val).to.be.null;
+  });
 
   it("should return -1 when choosing weighted index from an empty list", () => {
     let restaurants: any = [];
@@ -113,5 +119,11 @@ describe("Chooser function test", () => {
     expect(Chooser.chooseWeightedIndex(val)).to.equal(-1);
     val = 3.14159;
     expect(Chooser.chooseWeightedIndex(val)).to.equal(-1);
+  });
+  
+  it("should return -1 when choosing weighted index from a list of weights all with a value of 0", () => {
+    let weights: any = new Array(10).fill(0);
+    let val: any = Chooser.chooseWeightedIndex(weights);
+    expect(val).to.equal(-1);
   });
 });
