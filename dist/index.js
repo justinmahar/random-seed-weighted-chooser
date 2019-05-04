@@ -97,8 +97,8 @@ var Chooser = /** @class */ (function () {
         var weights = arrayOfObjects.map(function (currItem) {
             // When in doubt, we'll use the default.
             var currWeight = defaultWeight;
-            // We expect each item to be an object
-            if (currItem && typeof currItem === "object") {
+            // We expect each item to have the weight property
+            if (!!currItem) {
                 var propValue = currItem[weightPropertyKey];
                 // Use the abs of the prop value, but only if it's a number.
                 if (typeof propValue === "number") {

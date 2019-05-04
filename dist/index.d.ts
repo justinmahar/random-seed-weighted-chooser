@@ -37,5 +37,5 @@ export default class Chooser {
      *
      * @returns The chosen object, or `null` if the array was empty or all weights were `0`.
      */
-    static chooseWeightedObject: (arrayOfObjects: object[], weightPropertyKey?: any, defaultWeight?: number, seed?: any) => object | null;
+    static chooseWeightedObject: (arrayOfObjects: any[], weightPropertyKey?: any, defaultWeight?: number, seed?: any) => object | null;
 }

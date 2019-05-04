@@ -86,7 +86,7 @@ export default class Chooser {
    * @returns The chosen object, or `null` if the array was empty or all weights were `0`.
    */
   static chooseWeightedObject = (
-    arrayOfObjects: object[],
+    arrayOfObjects: any[],
     weightPropertyKey: any = "weight",
     defaultWeight: number = 1,
     seed: any = Math.random()
@@ -107,8 +107,8 @@ export default class Chooser {
     let weights: number[] = arrayOfObjects.map((currItem: any) => {
       // When in doubt, we'll use the default.
       let currWeight = defaultWeight;
-      // We expect each item to be an object
-      if (currItem && typeof currItem === "object") {
+      // We expect each item to have the weight property
+      if (!!currItem) {
         let propValue = currItem[weightPropertyKey];
         // Use the abs of the prop value, but only if it's a number.
         if (typeof propValue === "number") {
