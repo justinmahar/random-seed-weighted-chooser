@@ -33,14 +33,18 @@
     "seeded",
     "weight",
     "weighted",
+    "choice",
     "choose",
     "chooser",
+    "item",
+    "items",
     "pick",
     "picker",
     "pseudo",
     "pseudorandom",
     "number",
     "generator",
+    "array",
     "PRNG"
   ],
   "dependencies": {
