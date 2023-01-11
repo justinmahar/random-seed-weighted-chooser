@@ -144,14 +144,14 @@ If all you need is an index, you can just use a number[] array of weights, like 
 ```js
 import Chooser from "random-seed-weighted-chooser";
 
-let arrayOfWeights = [10, 50, 45, 5];
+let arrayOfWeights = [10, 50, 35, 5];
 
 // Returns the randomly chosen index or -1 if the array is empty. 
 // Uses Math.random() as the seed.
 Chooser.chooseWeightedIndex(arrayOfWeights);
 // 10% chance of returning 0
 // 50% chance of returning 1
-// 45% chance of returning 2
+// 35% chance of returning 2
 // 5% chance of returning 3
 ```
 
