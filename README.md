@@ -30,7 +30,7 @@ It also allows you to specify default weights, and to use your own seed for the 
 - **💪 Flexible and customizable**
   - Choose an index from an array of weights, or an object from an array of objects with weight properties
 - **🌱 Custom seed support**
-  - Provide your own seed for full control of the PNRG results
+  - Provide your own seed for full control of the PRNG results
 
 [lock:donate]::🚫---------------------------------------
 
@@ -68,7 +68,6 @@ Your support helps keep the project going and will earn you some serious virtual
   - [Weighted Random Index Choice Example](#weighted-random-index-choice-example)
   - [Weighted Random Item Choice Example](#weighted-random-item-choice-example)
   - [Lottery Example](#lottery-example)
-    - [Happy Random Seed Weighted Choosing!](#happy-random-seed-weighted-choosing)
 - [TypeScript](#typescript)
 - [Icon Attribution](#icon-attribution)
 - [Contributing](#contributing)
@@ -242,7 +241,7 @@ Chooser.chooseWeightedObject(lottery);
 // "Nearly impossible" has 1/100000 odds of occurring.
 ```
 
-#### Happy Random Seed Weighted Choosing!
+**🎉 Happy Random Seed Weighted Choosing! 🎉**
 
 [lock:typescript]::🚫---------------------------------------
 
