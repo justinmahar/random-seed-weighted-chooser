@@ -1,46 +1,76 @@
 {
   "name": "random-seed-weighted-chooser",
   "version": "1.0.14",
+  "coreVersion": "2.4.8",
+  "author": "Justin Mahar <contact@justinmahar.com>",
   "description": "A random weighted item chooser with custom seed option for JavaScript and TypeScript.",
+  "homepage": "https://justinmahar.github.io/random-seed-weighted-chooser/",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "scripts": {
-    "deploy": "npm run build && npm publish && git push",
-    "prepublish": "npm run build",
-    "build": "tsc",
-    "watch": "tsc --watch",
-    "test": "nyc --reporter=lcov mocha",
-    "report-coverage": "nyc report --reporter=text-lcov > coverage.lcov && codecov"
+    "build": "rm -rf ./dist && tsc",
+    "test": "mocha",
+    "start": "npm run storybook",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook",
+    "preship": "npm run build && git add dist && git diff-index --quiet HEAD || git commit -m \"Build, version, and publish.\" && npm version patch -m \"Build, version, and publish.\"",
+    "ship": "npm publish --access public",
+    "postship": "git push",
+    "update": "rm -rf .lockblocks && git clone -q git@github.com:justinmahar/react-kindling.git ./.lockblocks && lockblocks ./.lockblocks . --verbose && rm -rf .lockblocks && echo '' && echo ' → Be sure to run `npm i` to install new dependencies.' && echo ''",
+    "postupdate": "node remove-peer-deps.js"
   },
+  "license": "MIT",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/justinmahar/random-seed-weighted-chooser.git"
   },
+  "bugs": {
+    "url": "https://github.com/justinmahar/random-seed-weighted-chooser/issues"
+  },
   "keywords": [
     "random",
     "seed",
+    "weight",
     "weighted",
+    "choose",
     "chooser",
     "pseudorandom number generator",
     "PRNG"
   ],
-  "author": "Justin Mahar <thejustinmahar@gmail.com>",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/justinmahar/random-seed-weighted-chooser/issues"
-  },
-  "homepage": "https://github.com/justinmahar/random-seed-weighted-chooser#readme",
-  "devDependencies": {
-    "@types/chai": "^4.1.7",
-    "@types/mocha": "^5.2.6",
-    "@types/node": "^11.13.2",
-    "chai": "^4.2.0",
-    "codecov": "^3.3.0",
-    "mocha": "^6.1.4",
-    "nyc": "^14.0.0",
-    "typescript": "^3.4.3"
-  },
   "dependencies": {
     "seedrandom": "^3.0.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.20.12",
+    "@mdx-js/react": "^1.6.22",
+    "@storybook/addon-actions": "^6.5.15",
+    "@storybook/addon-essentials": "^6.5.15",
+    "@storybook/addon-links": "^6.5.15",
+    "@storybook/builder-webpack5": "^6.5.15",
+    "@storybook/manager-webpack5": "^6.5.15",
+    "@storybook/react": "^6.5.15",
+    "@types/chai": "^4.1.7",
+    "@types/mocha": "^5.2.6",
+    "@types/seedrandom": "^3.0.1",
+    "@typescript-eslint/eslint-plugin": "^5.48.1",
+    "@typescript-eslint/parser": "^5.48.1",
+    "babel-loader": "^9.1.2",
+    "chai": "^4.2.0",
+    "eslint": "^8.31.0",
+    "eslint-config-prettier": "^8.6.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-react": "^7.31.11",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "eslint-plugin-storybook": "^0.6.10",
+    "lockblocks": "^1.1.1",
+    "mocha": "^6.1.4",
+    "prettier": "^2.8.2",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-html-props": "^1.0.32",
+    "react-markdown": "^8.0.3",
+    "replace-in-file": "^6.3.5",
+    "typescript": "^4.9.4",
+    "webpack": "^5.75.0"
   }
 }

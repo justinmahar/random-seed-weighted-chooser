@@ -1,22 +1,87 @@
-[![Build Status](https://travis-ci.org/justinmahar/random-seed-weighted-chooser.svg?branch=master)](https://travis-ci.org/justinmahar/random-seed-weighted-chooser) [![codecov](https://codecov.io/gh/justinmahar/random-seed-weighted-chooser/branch/master/graph/badge.svg)](https://codecov.io/gh/justinmahar/random-seed-weighted-chooser)
+<h2 align="center">
+  🎲 Random Seed Weighted Chooser
+</h2>
+<h3 align="center">
+  A random weighted item chooser with custom seed option for JS.
+</h3>
+<p align="center">
+  <a href="https://badge.fury.io/js/random-seed-weighted-chooser" target="_blank" rel="noopener noreferrer"><img src="https://badge.fury.io/js/random-seed-weighted-chooser.svg" alt="npm Version" /></a>&nbsp;
+  <a href="https://github.com/justinmahar/random-seed-weighted-chooser/" target="_blank" rel="noopener noreferrer"><img src="https://img.shields.io/badge/GitHub-Source-success" alt="View project on GitHub" /></a>&nbsp;
+  <a href="https://github.com/justinmahar/random-seed-weighted-chooser/actions?query=workflow%3ADeploy" target="_blank" rel="noopener noreferrer"><img src="https://github.com/justinmahar/random-seed-weighted-chooser/workflows/Deploy/badge.svg" alt="Deploy Status" /></a>&nbsp;
+  <a href="https://github.com/sponsors/justinmahar" target="_blank" rel="noopener noreferrer"><img src="https://img.shields.io/static/v1?label=Sponsor&message=%E2%9D%A4&logo=GitHub&color=%23fe8e86" alt="Sponsor"/></a>
+</p>
 
-# Weighted Chooser With Random Seed
+## Documentation
 
-A random weighted item chooser with custom seed option for JavaScript and [TypeScript](https://www.typescriptlang.org/). I created this project because the other `npm` weighted choosers weren't very flexible.
+Read the **[official documentation](https://justinmahar.github.io/random-seed-weighted-chooser/)**.
 
-This module allows you to choose an index from an array of weights (simplest case), or an object from an array of objects that each have a customizable `"weight"` property. 
+## Overview
+
+A random weighted item chooser with custom seed option for JavaScript.
+
+This package allows you to choose an index from an array of weights (simplest case), or an object from an array of objects that each have a customizable `"weight"` property. 
 
 It also allows you to specify default weights, and to use your own seed for the pseudorandom number generator (PRNG).
 
-This project is [available via npm as a JavaScript CommonJS module](https://www.npmjs.com/package/random-seed-weighted-chooser) and the [source is available on GitHub](https://github.com/justinmahar/random-seed-weighted-chooser).
+### Features include:
+
+- **🎲 Choose weighted items at random**
+  - Randomly select items based on weights
+- **💪 Flexible and customizable**
+  - Choose an index from an array of weights, or an object from an array of objects with weight properties
+- **🌱 Custom seed support**
+  - Provide your own seed for full control of the PNRG results
+
+[lock:donate]::🚫---------------------------------------
+
+## Donate 
+
+I hope this project makes your life a little easier! If it does and you'd like to show your appreciation, consider supporting the project with a coffee or sponsorship. 
+
+Your support helps keep the project going and will earn you some serious virtual high fives. Maybe even a virtual fist bump if you're feeling extra cool.
+
+<a href="https://github.com/sponsors/justinmahar">
+  <img src="https://justinmahar.github.io/react-kindling/support/sponsor.png" alt="Sponsor via GitHub" height="35" />
+</a> <a href="https://paypal.me/thejustinmahar/5">
+  <img src="https://justinmahar.github.io/react-kindling/support/coffee-1.png" alt="Buy me a coffee" height="35" />
+</a> <a href="https://paypal.me/thejustinmahar/15">
+  <img src="https://justinmahar.github.io/react-kindling/support/coffee-3.png" alt="Buy me 3 coffees" height="35" />
+</a> <a href="https://paypal.me/thejustinmahar/25">
+  <img src="https://justinmahar.github.io/react-kindling/support/coffee-5.png" alt="Buy me 5 coffees" height="35" />
+</a>
+
+[/lock:donate]::---------------------------------------🚫
+
+## Table of Contents 
+
+- [Documentation](#documentation)
+- [Overview](#overview)
+  - [Features include:](#features-include)
+- [Donate](#donate)
+- [Table of Contents](#table-of-contents)
+- [Installation](#installation)
+- [Quick Start](#quick-start)
+  - [Using An Array Of Weights](#using-an-array-of-weights)
+  - [Using An Array Of Objects With Weight Properties](#using-an-array-of-objects-with-weight-properties)
+- [Bad Input](#bad-input)
+- [Examples](#examples)
+  - [Weighted Random Index Choice Example](#weighted-random-index-choice-example)
+  - [Weighted Random Item Choice Example](#weighted-random-item-choice-example)
+  - [Lottery Example](#lottery-example)
+    - [Happy Random Seed Weighted Choosing!](#happy-random-seed-weighted-choosing)
+- [TypeScript](#typescript)
+- [Icon Attribution](#icon-attribution)
+- [Contributing](#contributing)
+- [⭐ Found It Helpful? Star It!](#-found-it-helpful-star-it)
+- [License](#license)
 
 ## Installation
 
-```bash
-$ npm i random-seed-weighted-chooser
+```
+npm i random-seed-weighted-chooser
 ```
 
-## Usage
+## Quick Start
 
 Two ways:
 
@@ -28,15 +93,15 @@ Two ways:
 You can use an array of weight numbers to randomly choose an index in that array.
 
 ```js
-const chooser = require("random-seed-weighted-chooser").default;
+
 // ...
 // Returns an index using the weights to determine chance, or -1 if empty.
-chooser.chooseWeightedIndex(arrayOfWeights);
+Chooser.chooseWeightedIndex(arrayOfWeights);
 // Optionally, you can use a custom seed. Math.random() is used as the default.
-chooser.chooseWeightedIndex(arrayOfWeights, seed);
+Chooser.chooseWeightedIndex(arrayOfWeights, seed);
 // You can also specify a default weight to use if your array contains 
 // non-numbers (this is a failsafe).
-chooser.chooseWeightedIndex(arrayOfWeights, seed, defaultWeight);
+Chooser.chooseWeightedIndex(arrayOfWeights, seed, defaultWeight);
 ```
 
 If all weights are 0, -1 is returned.
@@ -46,12 +111,13 @@ If all weights are 0, -1 is returned.
 You can use an array of objects, each with a weight property and number value, to randomly choose one of those objects.
 
 ```js
-const chooser = require("random-seed-weighted-chooser").default;
+import Chooser from "random-seed-weighted-chooser";
+
 // ...
 // Expects each object to have a "weight" property. Returns null if array is empty.
-chooser.chooseWeightedObject(arrayOfObjects);
+Chooser.chooseWeightedObject(arrayOfObjects);
 // Uses custom property key, default weight (if weight property is missing), and custom seed.
-chooser.chooseWeightedObject(
+Chooser.chooseWeightedObject(
   arrayOfObjects,
   weightPropertyKey,
   defaultWeight,
@@ -76,13 +142,13 @@ All negative weights are treated as positive.
 If all you need is an index, you can just use a number[] array of weights, like so:
 
 ```js
-const chooser = require("random-seed-weighted-chooser").default;
+import Chooser from "random-seed-weighted-chooser";
 
 let arrayOfWeights = [10, 50, 45, 5];
 
 // Returns the randomly chosen index or -1 if the array is empty. 
 // Uses Math.random() as the seed.
-chooser.chooseWeightedIndex(arrayOfWeights);
+Chooser.chooseWeightedIndex(arrayOfWeights);
 // 10% chance of returning 0
 // 50% chance of returning 1
 // 45% chance of returning 2
@@ -97,13 +163,13 @@ So if you want to provide your own seed, you can. Seeds can be any value (string
 // Returns the randomly chosen index or -1 if the array is empty.
 // Will return the same result until the seed changes.
 let seed = "myseed";
-chooser.chooseWeightedIndex(arrayOfWeights, seed); // 3
-chooser.chooseWeightedIndex(arrayOfWeights, seed); // 3
-chooser.chooseWeightedIndex(arrayOfWeights, seed); // Always 3
+Chooser.chooseWeightedIndex(arrayOfWeights, seed); // 3
+Chooser.chooseWeightedIndex(arrayOfWeights, seed); // 3
+Chooser.chooseWeightedIndex(arrayOfWeights, seed); // Always 3
 seed = 12345;
-chooser.chooseWeightedIndex(arrayOfWeights, seed); // 1
-chooser.chooseWeightedIndex(arrayOfWeights, seed); // 1
-chooser.chooseWeightedIndex(arrayOfWeights, seed); // Always 1
+Chooser.chooseWeightedIndex(arrayOfWeights, seed); // 1
+Chooser.chooseWeightedIndex(arrayOfWeights, seed); // 1
+Chooser.chooseWeightedIndex(arrayOfWeights, seed); // Always 1
 ```
 
 ### Weighted Random Item Choice Example
@@ -118,7 +184,7 @@ let iceCreamFlavors = [
 // Returns the randomly chosen object based on their weights.
 // - Looks for a property called "weight"; default 1 if not found
 // - Uses Math.random() as the seed.
-chooser.chooseWeightedObject(iceCreamFlavors);
+Chooser.chooseWeightedObject(iceCreamFlavors);
 // chocolate = 30% chance
 // vanilla = 10% chance
 // piña colada = 60% chance
@@ -134,7 +200,7 @@ let restaurantRatings = [
 ];
 
 // This example uses restaurant ratings as weights.
-chooser.chooseWeightedObject(restaurantRatings, "rating");
+Chooser.chooseWeightedObject(restaurantRatings, "rating");
 // Chipotle = 40.8% chance
 // Moe's = 47.6% chance
 // Dirty Bill's = 11.7% chance
@@ -151,7 +217,7 @@ let restaurantRatings = [
 
 // Uses "rating" as weight, a default weight of 2.5, and a custom seed.
 let seed = "Brianna's pick";
-chooser.chooseWeightedObject(restaurantRatings, "rating", 2.5, seed);
+Chooser.chooseWeightedObject(restaurantRatings, "rating", 2.5, seed);
 // Chipotle = 36.2% chance
 // Moe's = 42.2% chance
 // Edgy Burrito = 21.6% chance (no rating property, so uses 2.5 default)
@@ -172,16 +238,44 @@ let lottery = [
   { name: "Very high chance", weight: 90000 }
 ];
 
-chooser.chooseWeightedObject(lottery);
+Chooser.chooseWeightedObject(lottery);
 // "Nearly impossible" has 1/100000 odds of occurring.
 ```
 
-# Happy Random Seed Weighted Choosing!
+#### Happy Random Seed Weighted Choosing!
 
-## ISC License
+[lock:typescript]::🚫---------------------------------------
 
-Copyright 2019 Justin Mahar
+## TypeScript
 
-Permission to use, copy, modify, and/or distribute this software for any purpose with or without fee is hereby granted, provided that the above copyright notice and this permission notice appear in all copies.
+Type definitions have been included for [TypeScript](https://www.typescriptlang.org/) support.
 
-THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
+[/lock:typescript]::---------------------------------------🚫
+
+[lock:icon]::🚫---------------------------------------
+
+## Icon Attribution
+
+Favicon by [Twemoji](https://github.com/twitter/twemoji).
+
+[/lock:icon]::---------------------------------------🚫
+
+[lock:contributing]::🚫---------------------------------------
+
+## Contributing
+
+Open source software is awesome and so are you. 😎
+
+Feel free to submit a pull request for bugs or additions, and make sure to update tests as appropriate. If you find a mistake in the docs, send a PR! Even the smallest changes help.
+
+For major changes, open an issue first to discuss what you'd like to change.
+
+[/lock:contributing]::---------------------------------------🚫
+
+## ⭐ Found It Helpful? [Star It!](https://github.com/justinmahar/random-seed-weighted-chooser/stargazers)
+
+If you found this project helpful, let the community know by giving it a [star](https://github.com/justinmahar/random-seed-weighted-chooser/stargazers): [👉⭐](https://github.com/justinmahar/random-seed-weighted-chooser/stargazers)
+
+## License
+
+See [LICENSE.md](https://justinmahar.github.io/random-seed-weighted-chooser/?path=/story/license--page).
