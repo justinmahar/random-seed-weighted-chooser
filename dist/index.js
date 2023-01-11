@@ -1,4 +1,7 @@
 "use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 /**
  * This PRNG allows seeding, unlike the lame `Math.random()`.
@@ -8,7 +11,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
    seededRandFunc(); // Number from 0 to 1
    ```
  */
-const seedrandom = require("seedrandom");
+const seedrandom_1 = __importDefault(require("seedrandom"));
 /**
  * Contains static weighted chooser functions.
  */
@@ -44,7 +47,7 @@ Chooser.chooseWeightedIndex = (weights, seed = Math.random(), defaultWeight = 1)
     // containing [5, 35, 45], and cumulative=45.
     const ranges = weights.map((weight) => (cumulative += typeof weight === 'number' && weight >= 0 ? Math.abs(weight) : defaultWeight));
     // Get our PRNG function using the seed.
-    const seededRandFunc = new seedrandom(seed);
+    const seededRandFunc = new seedrandom_1.default(seed);
     // Select our value.
     const selectedValue = seededRandFunc() * cumulative;
     // If the selected value is within one of the ranges, that's our choice!
