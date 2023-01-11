@@ -30,11 +30,17 @@
   "keywords": [
     "random",
     "seed",
+    "seeded",
     "weight",
     "weighted",
     "choose",
     "chooser",
-    "pseudorandom number generator",
+    "pick",
+    "picker",
+    "pseudo",
+    "pseudorandom",
+    "number",
+    "generator",
     "PRNG"
   ],
   "dependencies": {
